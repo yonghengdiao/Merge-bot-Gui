@@ -1,76 +1,66 @@
-# 合并自动化工具
+# 怎么运行这个项目？
+### 两种方法
+一：
 
-这个项目将Walme和Fireverse两个自动化工具合并到一个GUI界面中，方便用户同时管理和使用这两个工具。
+第一步：使用命令行cd进入Merge-bot-Gui项目目录
 
-## 功能特点
+第二步：npm install
 
-- 标签页界面：在同一个窗口中切换Walme和Fireverse功能
-- 独立运行：两个工具可以独立配置和运行，互不影响
-- 统一管理：集中管理令牌、代理和钱包等配置
-- 实时日志：查看每个工具的运行状态和日志输出
+第三步：npm start
 
-## 安装和使用
+二：(只适用windws)
 
-### 安装依赖
+进入Merge-bot-Gui目录，运行start.bat
 
-```bash
-npm install
-```
+# 五个项目如何注册和配置？
 
-### 启动应用
+## Walme
 
-```bash
-npm start
-```
+### 获取令牌方法
 
-## 使用说明
+登录 Walme 网站后，从浏览器开发者工具的网络请求中找到带有netword，刷新一下，找到tasks 复制 Bearer 后面的内容作为令牌。
 
-### Walme功能
+![image](https://github.com/user-attachments/assets/75ec8ad3-e7e9-4966-b721-421c5f08d091)
 
-1. 点击"Walme"标签页
-2. 在"令牌管理"中输入或导入令牌
-3. 在"代理管理"中输入或导入代理（可选）
-4. 点击"保存令牌"和"保存代理"按钮保存配置
-5. 点击"启动机器人"开始运行Walme自动化任务
-6. 在日志面板查看运行状态和结果
-7. 需要停止时点击"停止机器人"按钮
+1、输入令牌，保存令牌(导入适用于批量多号的情况)
 
-### Fireverse功能
+2、配置代理，运行即可
 
-1. 点击"Fireverse"标签页
-2. 在"钱包管理"中输入或导入私钥（以0x开头）
-3. 在"令牌管理"中输入或导入已有的令牌（如果有）
-4. 选择是否需要更新Token
-5. 输入邀请码（默认为"wanfeng"）
-6. 点击"保存私钥"和"保存令牌"按钮保存配置
-7. 点击"启动机器人"开始运行Fireverse自动化任务
-8. 在日志面板查看运行状态和结果
-9. 需要停止时点击"停止机器人"按钮
+![16d7ad979c12589e3ab6e6c536f6b4d](https://github.com/user-attachments/assets/a12ef3ed-99be-499a-bc51-a4c9c9f8f060)
 
-## 注意事项
+## Fireverse
 
-1. 两个工具可以同时运行，互不影响
-2. 每个工具的配置文件保存在各自的目录中
-3. 请确保您的网络连接稳定
-4. 私钥信息敏感，请妥善保管
+1、直接输入钱包私钥，运行即可，默认运行自动获取token，完全本地化，我不可能拿到你的私钥，代码可审计
 
-## 项目结构
+![e0b91ba384fdce95a8106840f67716d](https://github.com/user-attachments/assets/93ea01dc-a2e7-4fa1-9d90-39e1e1635063)
 
-```
-Merged-Auto-Bot/
-├── main.js          # 主进程代码
-├── renderer.js      # 渲染进程代码
-├── index.html       # 界面HTML
-├── styles.css       # 样式表
-├── package.json     # 项目配置
-├── walme/           # Walme相关文件
-│   ├── tokens.txt   # Walme令牌
-│   └── proxies.txt  # Walme代理
-└── fireverse/       # Fireverse相关文件
-    ├── tokens.txt   # Fireverse令牌
-    └── wallets.txt  # Fireverse钱包私钥
-```
+## Stork
 
-## 许可证
+1、安装chrome插件：https://chromewebstore.google.com/detail/stork-verify/knnliglhgkmlblppdejchidfihjnockl?pli=1
 
-MIT 
+  如果你愿意用我的邀请码：BQ9AG3IWSL
+  
+2、注册后，在软件上填写账号密码，保存后，运行机器人
+
+![5c7e11b4b90ad198c2be9ca4599ad2f](https://github.com/user-attachments/assets/083383d3-e1a4-400e-a5e2-7eb4c0561744)
+
+## NodeGo
+
+访问官网进行注册：https://app.nodego.ai/
+
+打开F12获取Token填入保存即可运行，我好懒，不想截图啦
+
+## NiPin
+
+访问小程序：https://t.me/hi_PIN_bot/app?startapp=pAkIbGN
+
+右键审查打开F12，获取token填入即可
+
+![image](https://github.com/user-attachments/assets/7d76a7e1-d4e1-4c35-99f8-15953097b27a)
+
+![92410e22e74ab9794ff4bdab0224574](https://github.com/user-attachments/assets/4e9e9c60-1eb2-4aa8-87b5-9df886a1b07c)
+
+
+### tg打开右键审查功能？
+
+打开侧边菜单，导航至 Settings > Advanced 。 向下滚动打开的菜单，点击 Experimental settings 按钮。 选中 Enable webview inspecting 选项
