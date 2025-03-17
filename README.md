@@ -4,7 +4,7 @@
 
 第一步：使用命令行cd进入Merge-bot-Gui项目目录
 
-第二步：npm install
+第二步：npm install (如果下载依赖报错，或者下载不下来怎么办，我给你提供了依赖环境压缩包，直接下载压缩包，然后解压到Merge-bot-Gui项目根目录即可，下载地址：https://pan.quark.cn/s/07c6aa713dfc )
 
 第三步：npm start
 
