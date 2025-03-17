@@ -1,0 +1,631 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 15px;
+  padding: 15px;
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+/* 标签页样式 */
+.tabs {
+  display: flex;
+  margin-bottom: 15px;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 12px;
+  background-color: #f8f8f8;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+  color: #666;
+  border-bottom: 3px solid transparent;
+}
+
+.tab-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.tab-btn.active {
+  background-color: white;
+  color: #6e8efb;
+  border-bottom: 3px solid #6e8efb;
+}
+
+.tab-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-pane {
+  display: none;
+  flex: 1;
+}
+
+.tab-pane.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.sidebar {
+  flex: 1 1 280px;
+  min-width: 230px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.control-panel, .tokens-panel, .proxies-panel, .wallets-panel, .options-panel {
+  background-color: white;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.control-panel h2, .tokens-panel h2, .proxies-panel h2, .log-panel h2, .wallets-panel h2, .options-panel h2 {
+  margin-bottom: 10px;
+  color: #444;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.status-running {
+  color: #4caf50;
+}
+
+.status-stopped {
+  color: #f44336;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.status-dot.running {
+  background-color: #4caf50;
+  box-shadow: 0 0 5px #4caf50;
+  animation: pulse 1.5s infinite;
+}
+
+.status-dot.stopped {
+  background-color: #f44336;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 5px rgba(76, 175, 80, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+  }
+}
+
+.control-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.start-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.stop-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.log-panel {
+  flex: 2 1 380px;
+  background-color: white;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.log-container {
+  flex: 1;
+  background-color: #1e1e1e;
+  border-radius: 4px;
+  padding: 8px;
+  overflow-y: auto;
+  font-family: 'Consolas', monospace;
+  color: #f8f8f8;
+  margin-top: 8px;
+  min-height: 250px;
+  height: calc(100vh - 280px);
+  max-height: 500px;
+}
+
+.log-entry {
+  margin-bottom: 5px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.log-info {
+  color: #8be9fd;
+}
+
+.log-success {
+  color: #50fa7b;
+}
+
+.log-warning {
+  color: #ffb86c;
+}
+
+.log-error {
+  color: #ff5555;
+}
+
+.textarea {
+  width: 100%;
+  height: 120px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: vertical;
+  font-family: 'Consolas', monospace;
+  margin-bottom: 8px;
+}
+
+.file-input {
+  display: none;
+}
+
+.file-label {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: #6e8efb;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.file-label:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Fireverse 特定样式 */
+.option-item {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.option-item label {
+  flex: 0 0 100px;
+  font-weight: bold;
+}
+
+.option-item select, .option-item input {
+  flex: 1;
+  padding: 6px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.option-text {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f8f8f8;
+  border-radius: 4px;
+  border-left: 3px solid #6e8efb;
+}
+
+.option-text p {
+  margin: 5px 0;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+  
+  .sidebar, .log-panel {
+    flex: 1 1 100%;
+  }
+  
+  header h1 {
+    font-size: 2rem;
+  }
+  
+  .control-buttons {
+    flex-wrap: wrap;
+  }
+  
+  .textarea {
+    height: 120px;
+  }
+  
+  .log-container {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+  
+  header {
+    padding: 15px;
+  }
+  
+  header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .control-panel, .tokens-panel, .proxies-panel, .log-panel, .wallets-panel, .options-panel {
+    padding: 10px;
+  }
+}
+
+/* 添加Stork相关样式 */
+.accounts-panel {
+  background-color: white;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+.account-list {
+  max-height: 150px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.account-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.account-item:last-child {
+  border-bottom: none;
+}
+
+.account-info {
+  flex: 1;
+}
+
+.account-username {
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.account-remove {
+  color: #f44336;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.account-form {
+  margin-top: 10px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* 为表格添加样式 */
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background-color: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.stats-table th,
+.stats-table td {
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.stats-table th {
+  background-color: #f8f8f8;
+  font-weight: bold;
+}
+
+.stats-table tr:hover {
+  background-color: #f5f5f5;
+}
+
+.stats-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.stats-title {
+  font-weight: bold;
+  color: #333;
+}
+
+.stats-refresh {
+  background-color: #6e8efb;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.stats-refresh:hover {
+  opacity: 0.9;
+}
+
+/* NodeGo特定样式 */
+.nodego-info {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  background-color: #2a2b36;
+  border-left: 3px solid #8be9fd;
+}
+
+.nodego-info p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+
+.nodego-stats {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.stat-item {
+  background-color: #2a2b36;
+  padding: 8px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #8be9fd;
+}
+
+.stat-value {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* HiPin 样式 */
+.stats-panel {
+  background: #fff;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.stats-table {
+  width: 100%;
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.stats-row:last-child {
+  border-bottom: none;
+}
+
+.stats-label {
+  color: #666;
+  font-size: 14px;
+}
+
+.stats-value {
+  color: #333;
+  font-weight: 500;
+}
+
+#hipin-account-list {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+}
+
+#hipin-account-list .account-item {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#hipin-account-list .account-item:hover {
+  background: #e9ecef;
+}
+
+#hipin-account-list .account-info {
+  flex: 1;
+}
+
+#hipin-account-list .account-token {
+  font-size: 14px;
+  color: #495057;
+  word-break: break-all;
+}
+
+#hipin-account-list .account-remove {
+  color: #dc3545;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+#hipin-account-list .account-remove:hover {
+  background-color: #dc3545;
+  color: white;
+}
+
+#hipin-token {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+#hipin-add-account-btn {
+  width: 100%;
+  padding: 8px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#hipin-add-account-btn:hover {
+  background: #218838;
+}
+
+#hipin-log-container {
+  flex: 1;
+  background-color: #1e1e1e;
+  border-radius: 4px;
+  padding: 8px;
+  overflow-y: auto;
+  font-family: 'Consolas', monospace;
+  color: #f8f8f8;
+  margin-top: 8px;
+  min-height: 250px;
+  height: calc(100vh - 280px);
+  max-height: 500px;
+}
+
+#hipin-log-container .log-entry {
+  margin-bottom: 5px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-break: break-all;
+} 

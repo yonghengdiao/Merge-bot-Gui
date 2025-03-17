@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>懒人工具包 </title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>撸毛懒人专用</h1>
+      <p>推特x.com/pl_wanfeng</p>
+    </header>
+    
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="walme">Walme</button>
+      <button class="tab-btn" data-tab="fireverse">Fireverse</button>
+      <button class="tab-btn" data-tab="stork">Stork</button>
+      <button class="tab-btn" data-tab="nodego">NodeGo</button>
+      <button class="tab-btn" data-tab="hipin">HiPin</button>
+    </div>
+    
+    <div class="tab-content">
+      <!-- Walme 栏目 -->
+      <div class="tab-pane active" id="walme-tab">
+        <div class="main-content">
+          <div class="sidebar">
+            <div class="control-panel">
+              <h2>Walme控制面板</h2>
+              <div class="status-indicator">
+                <div class="status-dot stopped" id="walme-status-dot"></div>
+                <span id="walme-status-text" class="status-stopped">已停止</span>
+              </div>
+              <div class="control-buttons">
+                <button class="start-btn" id="walme-start-btn">启动机器人</button>
+                <button class="stop-btn" id="walme-stop-btn" disabled>停止机器人</button>
+              </div>
+            </div>
+            
+            <div class="tokens-panel">
+              <h2>令牌管理</h2>
+              <p>每行输入一个令牌</p>
+              <textarea id="walme-tokens-textarea" class="textarea" placeholder="在此处粘贴您的令牌..."></textarea>
+              <div class="control-buttons">
+                <button id="walme-save-tokens-btn">保存令牌</button>
+                <label for="walme-import-tokens" class="file-label">导入令牌</label>
+                <input type="file" id="walme-import-tokens" class="file-input">
+              </div>
+            </div>
+            
+            <div class="proxies-panel">
+              <h2>代理管理</h2>
+              <p>支持HTTP、SOCKS4、SOCKS5代理</p>
+              <textarea id="walme-proxies-textarea" class="textarea" placeholder="在此处粘贴您的代理..."></textarea>
+              <div class="control-buttons">
+                <button id="walme-save-proxies-btn">保存代理</button>
+                <label for="walme-import-proxies" class="file-label">导入代理</label>
+                <input type="file" id="walme-import-proxies" class="file-input">
+              </div>
+            </div>
+          </div>
+          
+          <div class="log-panel">
+            <h2>Walme运行日志</h2>
+            <div class="log-container" id="walme-log-container"></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Fireverse 栏目 -->
+      <div class="tab-pane" id="fireverse-tab">
+        <div class="main-content">
+          <div class="sidebar">
+            <div class="control-panel">
+              <h2>Fireverse控制面板</h2>
+              <div class="status-indicator">
+                <div class="status-dot stopped" id="fireverse-status-dot"></div>
+                <span id="fireverse-status-text" class="status-stopped">已停止</span>
+              </div>
+              <div class="control-buttons">
+                <button class="start-btn" id="fireverse-start-btn">启动机器人</button>
+                <button class="stop-btn" id="fireverse-stop-btn" disabled>停止机器人</button>
+              </div>
+            </div>
+            
+            <div class="wallets-panel">
+              <h2>钱包管理</h2>
+              <p>每行输入一个私钥（以0x开头）</p>
+              <textarea id="fireverse-wallets-textarea" class="textarea" placeholder="在此处粘贴您的私钥..."></textarea>
+              <div class="control-buttons">
+                <button id="fireverse-save-wallets-btn">保存私钥</button>
+                <label for="fireverse-import-wallets" class="file-label">导入私钥</label>
+                <input type="file" id="fireverse-import-wallets" class="file-input">
+              </div>
+            </div>
+            
+            <div class="options-panel">
+              <h2>选项</h2>
+              <div class="option-item">
+                <label for="fireverse-update-token">自动更新Token:</label>
+                <select id="fireverse-update-token">
+                  <option value="y">是 (使用钱包生成新Token)</option>
+                  <option value="n">否 (使用已有Token)</option>
+                </select>
+              </div>
+              <div class="option-item">
+                <label for="fireverse-invite-code">邀请码:</label>
+                <input type="text" id="fireverse-invite-code" value="wanfeng">
+              </div>
+              <div class="option-text">
+                <p>提示: 选择"是"将使用钱包私钥自动获取新Token</p>
+                <p>选择"否"则使用已有的Token运行</p>
+                <p>无需手动填写令牌，系统会自动处理</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="log-panel">
+            <h2>Fireverse运行日志</h2>
+            <div class="log-container" id="fireverse-log-container"></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Stork 栏目 -->
+      <div class="tab-pane" id="stork-tab">
+        <div class="main-content">
+          <div class="sidebar">
+            <div class="control-panel">
+              <h2>Stork控制面板</h2>
+              <div class="status-indicator">
+                <div class="status-dot stopped" id="stork-status-dot"></div>
+                <span id="stork-status-text" class="status-stopped">已停止</span>
+              </div>
+              <div class="control-buttons">
+                <button class="start-btn" id="stork-start-btn">启动机器人</button>
+                <button class="stop-btn" id="stork-stop-btn" disabled>停止机器人</button>
+              </div>
+            </div>
+            
+            <div class="accounts-panel">
+              <h2>账户管理</h2>
+              <p>添加Stork Oracle账户</p>
+              <div class="account-list" id="stork-account-list">
+                <!-- 账户列表将在这里动态生成 -->
+              </div>
+              <div class="account-form">
+                <div class="form-group">
+                  <label for="stork-username">用户名/邮箱:</label>
+                  <input type="text" id="stork-username" placeholder="输入Stork账户邮箱">
+                </div>
+                <div class="form-group">
+                  <label for="stork-password">密码:</label>
+                  <input type="password" id="stork-password" placeholder="输入账户密码">
+                </div>
+                <div class="control-buttons">
+                  <button id="stork-add-account-btn">添加账户</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="proxies-panel">
+              <h2>代理管理</h2>
+              <p>支持HTTP和SOCKS5代理</p>
+              <textarea id="stork-proxies-textarea" class="textarea" placeholder="格式: http://user:pass@host:port 或 socks5://user:pass@host:port"></textarea>
+              <div class="control-buttons">
+                <button id="stork-save-proxies-btn">保存代理</button>
+                <label for="stork-import-proxies" class="file-label">导入代理</label>
+                <input type="file" id="stork-import-proxies" class="file-input">
+              </div>
+            </div>
+            
+            <div class="options-panel">
+              <h2>选项</h2>
+              <div class="option-item">
+                <label for="stork-interval">验证间隔(秒):</label>
+                <input type="number" id="stork-interval" value="30" min="5" max="600">
+              </div>
+              <div class="option-item">
+                <label for="stork-threads">线程数:</label>
+                <input type="number" id="stork-threads" value="1" min="1" max="10">
+              </div>
+              <div class="option-text">
+                <p>提示: 验证间隔建议30秒以上，避免请求过于频繁</p>
+                <p>线程数越多，同时处理的账户越多，但消耗资源也越多</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="log-panel">
+            <h2>Stork运行日志</h2>
+            <div class="log-container" id="stork-log-container"></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- NodeGo 栏目 -->
+      <div class="tab-pane" id="nodego-tab">
+        <div class="main-content">
+          <div class="sidebar">
+            <div class="control-panel">
+              <h2>NodeGo控制面板</h2>
+              <div class="status-indicator">
+                <div class="status-dot stopped" id="nodego-status-dot"></div>
+                <span id="nodego-status-text" class="status-stopped">已停止</span>
+              </div>
+              <div class="control-buttons">
+                <button class="start-btn" id="nodego-start-btn">启动机器人</button>
+                <button class="stop-btn" id="nodego-stop-btn" disabled>停止机器人</button>
+              </div>
+            </div>
+            
+            <div class="tokens-panel">
+              <h2>令牌管理</h2>
+              <p>每行输入一个令牌</p>
+              <textarea id="nodego-tokens-textarea" class="textarea" placeholder="在此处粘贴您的NodeGo令牌..."></textarea>
+              <div class="control-buttons">
+                <button id="nodego-save-tokens-btn">保存令牌</button>
+                <label for="nodego-import-tokens" class="file-label">导入令牌</label>
+                <input type="file" id="nodego-import-tokens" class="file-input">
+              </div>
+            </div>
+            
+            <div class="proxies-panel">
+              <h2>代理管理</h2>
+              <p>支持HTTP、SOCKS4、SOCKS5代理</p>
+              <textarea id="nodego-proxies-textarea" class="textarea" placeholder="格式: http://user:pass@host:port 或 socks5://user:pass@host:port"></textarea>
+              <div class="control-buttons">
+                <button id="nodego-save-proxies-btn">保存代理</button>
+                <label for="nodego-import-proxies" class="file-label">导入代理</label>
+                <input type="file" id="nodego-import-proxies" class="file-input">
+              </div>
+            </div>
+            
+            <div class="options-panel">
+              <h2>选项</h2>
+              <div class="option-item">
+                <label for="nodego-ping-interval">Ping间隔 (分钟):</label>
+                <select id="nodego-ping-interval">
+                  <option value="4">4-6 (默认)</option>
+                  <option value="2">2-3</option>
+                  <option value="8">8-10</option>
+                  <option value="12">12-15</option>
+                </select>
+              </div>
+              <div class="option-text">
+                <p>提示: Ping间隔建议保持默认值以避免请求过于频繁</p>
+                <p>NodeGo会自动随机化Ping间隔以避免检测</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="log-panel">
+            <h2>NodeGo运行日志</h2>
+            <div class="log-container" id="nodego-log-container"></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- HiPin 栏目 -->
+      <div class="tab-pane" id="hipin-tab">
+        <div class="main-content">
+          <div class="sidebar">
+            <div class="control-panel">
+              <h2>HiPin控制面板</h2>
+              <div class="status-indicator">
+                <div class="status-dot stopped" id="hipin-status-dot"></div>
+                <span id="hipin-status-text" class="status-stopped">已停止</span>
+              </div>
+              <div class="control-buttons">
+                <button class="start-btn" id="hipin-start-btn">启动机器人</button>
+                <button class="stop-btn" id="hipin-stop-btn" disabled>停止机器人</button>
+              </div>
+            </div>
+            
+            <div class="accounts-panel">
+              <h2>令牌管理</h2>
+              <p>每行输入一个令牌</p>
+              <textarea id="hipin-tokens-textarea" class="textarea" placeholder="在此处粘贴您的HiPin令牌..."></textarea>
+              <div class="control-buttons">
+                <button id="hipin-save-tokens-btn">保存令牌</button>
+                <label for="hipin-import-tokens" class="file-label">导入令牌</label>
+                <input type="file" id="hipin-import-tokens" class="file-input">
+              </div>
+            </div>
+            
+            <div class="stats-panel">
+              <h2>账号统计</h2>
+              <div class="stats-table">
+                <div class="stats-row">
+                  <span class="stats-label">用户名:</span>
+                  <span class="stats-value" id="hipin-username">-</span>
+                </div>
+                <div class="stats-row">
+                  <span class="stats-label">今日签到:</span>
+                  <span class="stats-value" id="hipin-checkin">-</span>
+                </div>
+                <div class="stats-row">
+                  <span class="stats-label">当前等级:</span>
+                  <span class="stats-value" id="hipin-level">-</span>
+                </div>
+                <div class="stats-row">
+                  <span class="stats-label">下一等级所需积分:</span>
+                  <span class="stats-value" id="hipin-next-level-points">-</span>
+                </div>
+                <div class="stats-row">
+                  <span class="stats-label">下一等级增加能量:</span>
+                  <span class="stats-value" id="hipin-next-level-power">-</span>
+                </div>
+                <div class="stats-row">
+                  <span class="stats-label">数据能量:</span>
+                  <span class="stats-value" id="hipin-data-power">-</span>
+                </div>
+                <div class="stats-row">
+                  <span class="stats-label">Pin积分:</span>
+                  <span class="stats-value" id="hipin-points">-</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="log-panel">
+            <h2>HiPin运行日志</h2>
+            <div class="log-container" id="hipin-log-container"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="renderer.js"></script>
+</body>
+</html> 
