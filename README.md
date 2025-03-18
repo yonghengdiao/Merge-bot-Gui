@@ -49,6 +49,9 @@
 访问官网进行注册：https://app.nodego.ai/
 
 打开F12获取Token填入保存即可运行，我好懒，不想截图啦
+补个图
+![image](https://github.com/user-attachments/assets/bc27a1be-8e30-489a-9a4b-b8f9f4686a24)
+
 
 ## NiPin
 
