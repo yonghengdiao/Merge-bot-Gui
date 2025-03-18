@@ -46,7 +46,7 @@
 
 ## NodeGo
 
-访问官网进行注册：https://app.nodego.ai/
+访问官网进行注册：https://app.nodego.ai/r/NODE9499CAE7F673
 
 打开F12获取Token填入保存即可运行
 
