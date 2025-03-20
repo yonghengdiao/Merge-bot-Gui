@@ -67,3 +67,28 @@
 ### tg打开右键审查功能？
 
 打开侧边菜单，导航至 Settings > Advanced 。 向下滚动打开的菜单，点击 Experimental settings 按钮。 选中 Enable webview inspecting 选项
+
+
+## LayerEdge
+
+访问官网：https://dashboard.layeredge.io/
+
+然后注册，输入邀请码，我没有！
+
+注册完成后，使用钱包私钥在工具里启动即可，新注册钱包，可能会出现钱包未注册的情况，这个属于官网延迟
+
+![image](https://github.com/user-attachments/assets/a1723959-c9ce-4379-87e4-fcaaeb6362ad)
+
+
+## Kile
+
+访问官网：https://testnet.gokite.ai?r=tNkeYNdB
+使用钱包进行注册后即可，在工具里填入钱包地址和代理运行机器人即可
+
+![image](https://github.com/user-attachments/assets/0a43edc2-f286-48f5-ade4-14d634c23fd3)
+
+
+
+
+
+
